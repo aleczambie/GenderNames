@@ -6,8 +6,9 @@ document.body.style.backgroundColor = "#ffe5b4";
 
 document.querySelector("form").addEventListener("submit", function(e){
     e.preventDefault();
-    getName();
-    getRelatedNames();
+    if(getName()) {
+        getRelatedNames();
+    }
 });
 
 document.querySelector("#resetBtn").addEventListener("click", function(e){
@@ -16,13 +17,12 @@ document.querySelector("#resetBtn").addEventListener("click", function(e){
 })
 
 async function getName() {
-
     let birthname = document.querySelector("#birthname").value;
 
     if(birthname.trim()===""){
         document.querySelector("#message").innerHTML = `Please enter a name`;
         document.querySelector("#message").style.display = "block";
-        return;
+        return false;
     }
     let key = "al735510688";
     let url = `https://www.behindthename.com/api/lookup.json?name=${encodeURIComponent(birthname)}&key=${key}`;

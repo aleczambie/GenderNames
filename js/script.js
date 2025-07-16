@@ -89,7 +89,7 @@ async function getRelatedNames(){
 
     if(data.error){
         document.querySelector("#message").innerHTML = "That name is not found, try again."
-        document.querySelector("#relatedNames").style.display = "none"; // Add this line
+        document.querySelector("#relatedNames").style.display = "none"; 
         return;
     } else{
          document.querySelector("#relatedNames").innerHTML = "Related names: "
